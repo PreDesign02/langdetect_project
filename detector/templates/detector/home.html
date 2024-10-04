@@ -1,0 +1,26 @@
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Detection</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Language Detection App</h1>
+            <form method="post">
+                {% csrf_token %}
+                <textarea name="text" placeholder="Enter text here..."></textarea>
+                <div class="middle-line"></div>
+                <button type="submit">Detect Language</button>
+            </form>
+            {% if detected_language %}
+                <h2 class="result">Detected Language: {{ detected_language }}</h2>
+            {% endif %}
+        </div>
+    </body>
+    </html>
